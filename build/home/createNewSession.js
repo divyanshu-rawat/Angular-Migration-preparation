@@ -16,8 +16,8 @@ angular.module('app').component('createNewSession', {
             };
             sessions.createNewSession(newUserSession).then(function (response) {
                 console.log(response);
-                this.userSessions.push(response.data);
-            }.bind(_this));
+                _this.userSessions.push(response.data);
+            });
         };
     }
 });
