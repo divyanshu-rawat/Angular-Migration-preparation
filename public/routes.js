@@ -43,18 +43,14 @@ app.config(function($routeProvider) {
       }
     })
     .when('/admin/users/:id', {
-      controller: 'userDetailsCtrl',
-      templateUrl: 'admin/userDetails.html',
-      controllerAs: 'vm',
+      template: '<user-details  all-users = "$resolve.allUsers"></user-details>',
       resolve: {
         admin: routeResolvers.requireAdmin,
         allUsers: routeResolvers.allUsers
       }
     })
     .when('/users', {
-      controller: 'userListCtrl',
-      templateUrl: 'admin/userList.html',
-      controllerAs: 'vm',
+      template: '<user-list all-users = "$resolve.allUsers" ><user-list/>',
       resolve: {
         admin: routeResolvers.requireAdmin,
         allUsers: routeResolvers.allUsers
