@@ -1,10 +1,16 @@
-angular.module('app').controller('homeCtrl', 
-    function(currentIdentity, userSessions, sessions, 
+angular.module('app').component('home',{
+
+  templateUrl:'/home/home.html',
+    bindings:{
+
+      userSessions:'=',
+
+    },
+    controller:function(currentIdentity, sessions, 
     toastr, unreviewedSessionCount) {
       
       
   this.currentUser = currentIdentity.currentUser
-  this.userSessions = userSessions;
   
   this.setNextSessionToReview = function() {
     sessions.getNextUnreviewedSession(currentIdentity.currentUser.id).then(function(response) {
@@ -36,4 +42,5 @@ angular.module('app').controller('homeCtrl',
       unreviewedSessionCount.updateUnreviewedSessionCount();
     }.bind(this))
   }
+}
 })
