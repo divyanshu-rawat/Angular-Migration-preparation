@@ -24,7 +24,7 @@ angular.module('app').component('home',{
     sessions.incrementVote(this.currentSessionToReview.id)
     .then(() => {
        sessions.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id)
-    }
+    })
     .then(() => {
       this.setNextSessionToReview();
       

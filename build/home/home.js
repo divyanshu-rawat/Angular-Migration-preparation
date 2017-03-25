@@ -17,11 +17,12 @@ angular.module('app').component('home', {
             sessions.incrementVote(this.currentSessionToReview.id)
                 .then(function () {
                 sessions.addReviewedSession(_this.currentUser.id, _this.currentSessionToReview.id);
-            }, then(function () {
+            })
+                .then(function () {
                 _this.setNextSessionToReview();
                 // pull updated value
                 unreviewedSessionCount.updateUnreviewedSessionCount();
-            }));
+            });
         };
         this.voteNo = function () {
             var _this = this;
