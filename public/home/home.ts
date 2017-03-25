@@ -13,34 +13,34 @@ angular.module('app').component('home',{
   this.currentUser = currentIdentity.currentUser
   
   this.setNextSessionToReview = function() {
-    sessions.getNextUnreviewedSession(currentIdentity.currentUser.id).then(function(response) {
+    sessions.getNextUnreviewedSession(currentIdentity.currentUser.id).then((response) => {
       this.currentSessionToReview = response.data;
-    }.bind(this))
+    })
   }
   this.setNextSessionToReview();
   
   
   this.voteYes = function() {
     sessions.incrementVote(this.currentSessionToReview.id)
-    .then(function() {
-      return sessions.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id)
-    }.bind(this))
-    .then(function() {
+    .then(() => {
+       sessions.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id)
+    }
+    .then(() => {
       this.setNextSessionToReview();
       
       // pull updated value
       unreviewedSessionCount.updateUnreviewedSessionCount();
-    }.bind(this))
+    })
   }
   
   this.voteNo = function() {
     sessions.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id)
-    .then(function() {
+    .then(() => {
       this.setNextSessionToReview();
 
       // pull updated value
       unreviewedSessionCount.updateUnreviewedSessionCount();
-    }.bind(this))
+    })
   }
 }
 })

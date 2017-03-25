@@ -9,7 +9,7 @@ angular.module('app').component('createNewSession', {
 
     controller:function(toastr, currentIdentity, sessions) {
   
-  this.create = function() {
+  this.create = () => {
     var newUserSession = {
       title: this.title,
       length: parseInt(this.length),
