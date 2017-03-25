@@ -1,5 +1,10 @@
-angular.module('app').controller('createUsersCtrl', 
-      function(parseNames, users, toastr) {
+angular.module('app').component('createUsers', {
+
+  templateUrl:'/admin/createUsers.html',
+  bindings:{
+
+  },
+     controller:function(parseNames, users, toastr) {
     
   this.import = function() {
     var people = parseNames(this.namesblob);
@@ -16,4 +21,5 @@ angular.module('app').controller('createUsersCtrl',
     
     toastr.success("Users Created!")
   }    
+}
 })

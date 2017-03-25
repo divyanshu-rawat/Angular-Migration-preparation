@@ -57,9 +57,7 @@ app.config(function($routeProvider) {
       }
     })
     .when('/admin/createusers', {
-      controller: 'createUsersCtrl',
-      templateUrl: 'admin/createUsers.html',
-      controllerAs: 'vm',
+     template: '<create-users></create-users>',
       resolve:  {
         admin: routeResolvers.requireAdmin
       }
@@ -72,32 +70,24 @@ app.config(function($routeProvider) {
       }
     })
     .when('/profile', {
-      controller: 'profileCtrl',
-      templateUrl: 'profile/profile.html',
-      controllerAs: 'vm',
+      template: '<profile></profile>',
       resolve: {
         userProfile: routeResolvers.loggedIn,
       }
     })
     .when('/createsession', {
-      controller: 'createNewSessionCtrl',
-      templateUrl: 'home/createNewSession.html',
-      controllerAs: 'vm',
+    template: '<create-new-session user-sessions = "$resolve.userSessions"></create-new-session>',
       resolve: {
         userSessions: routeResolvers.userSessions,
       }
     })
     .when('/login', {
-      controller: 'loginCtrl',
-      templateUrl: 'security/login.html',
-      controllerAs: 'vm',
+      template: '<login></login>',
       resolve: {
         currentAuth: routeResolvers.waitForAuth
       }
     })
     .when('/logout', {
-      controller: 'logoutCtrl',
-      controllerAs: 'vm',
       template: '<logout></logout>'
     })
     .otherwise('/home')
