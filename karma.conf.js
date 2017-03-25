@@ -20,7 +20,7 @@ module.exports = function(config) {
       'public/vendor/1.5.5/angular-route.min.js',
       'public/vendor/toastr.min.js',
       'public/toastr/toastr.js',
-      'public/app.js',
+      'build/app.js',
       'public/**/*.js',
       'test/**/*.js',
       'public/**/*.html'
